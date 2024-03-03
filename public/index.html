@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        display: flex;
+      }
+      button {
+        width: 50%;
+        height: 100dvh;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button id="prevbtn">Prev</button>
+      <button id="nextbtn">Next</button>
+    </div>
+
+    <script>
+      const ws = new WebSocket("ws://localhost:3000");
+
+      function prev() {
+        ws.send("left");
+      }
+      function next() {
+        ws.send("right");
+      }
+
+      document.getElementById("prevbtn").addEventListener("click", prev);
+      document.getElementById("nextbtn").addEventListener("click", next);
+    </script>
+  </body>
+</html>

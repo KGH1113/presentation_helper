@@ -18,6 +18,7 @@ wss.on("connection", (ws) => {
   // 클라이언트로부터 메시지 수신
   ws.on("message", (message) => {
     // 연결된 모든 클라이언트에게 메시지 전송
+    console.log(message.toString());
     for (const client of clients) {
       if (client !== ws && client.readyState === WebSocket.OPEN) {
         client.send(message);
@@ -35,6 +36,10 @@ wss.on("connection", (ws) => {
 
 // 정적 파일 서빙
 app.use(express.static("public"));
+
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {

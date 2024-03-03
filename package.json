@@ -1,10 +1,11 @@
 {
-  "name": "test",
+  "name": "presentation_helper",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "PORT=80 node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
