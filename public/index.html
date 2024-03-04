@@ -22,7 +22,7 @@
 
     <script>
       let v = location.href.split("/");
-      v[0] = "ws:";
+      v[0] = "wss:";
       const ws = new WebSocket(v.join("/"));
 
       function prev() {
