@@ -3,26 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      div {
-        display: flex;
-      }
-      button {
-        width: 50%;
-        height: 100dvh;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
+    <title>프레젠테이션 포인터</title>
   </head>
   <body>
-    <div>
-      <button id="prevbtn">Prev</button>
-      <button id="nextbtn">Next</button>
+    <div class="container">
+      <button id="prevbtn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="48"
+          height="48"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-chevron-left"
+        >
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+      </button>
+      <button id="nextbtn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="48"
+          height="48"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-chevron-right"
+        >
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+      </button>
     </div>
 
     <script>
       let v = location.href.split("/");
-      v[0] = "wss:";
+      v[0] = "ws:";
       const ws = new WebSocket(v.join("/"));
 
       function prev() {
